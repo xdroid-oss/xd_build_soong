@@ -120,6 +120,9 @@ def parse_args():
 
   config["XdroidDevice"] = config["DeviceName"]
 
+  if config["BuildNumber"].startswith("eng."):
+    config["BuildNumber"] = config["DateUtc"]
+
   override_config(config)
 
   append_additional_system_props(args)
